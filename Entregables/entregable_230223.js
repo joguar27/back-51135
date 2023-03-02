@@ -10,16 +10,18 @@ class ProductManager {
     this.id = id;
   }
 
-  addProduct(Product) {
+  addProduct(product) {
     for (const element of this.products) {
       if (
-        product.stock < 0, 
-        product.price < 0 ,
-        product.code === "" ,
-        product.title === "" ,
-        product.description === "",
+        product.stock < 0 && 
+        product.price < 0  &&
+        product.code === ""  &&
+        product.title === ""  &&
+        product.description === "" &&
         product.thumbnail === ""
-      ) {
+      ) 
+        
+      {
         return { error: "producto no valido" };
       } else if (element.code === product.code) {
         return { error: "producto existente" };
@@ -32,7 +34,7 @@ class ProductManager {
   getProducts() {
     return this.products;
   }
-  getProducts(id) {
+  getProductsById(id) {
     for (const element of this.products) {
       if (element.id === id) {
         return element.title;
